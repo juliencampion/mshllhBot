@@ -1,0 +1,22 @@
+{
+  "name": "mshllhbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mshllhbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiyonari/mshllhBot.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Kiyonari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kiyonari/mshllhBot/issues"
+  },
+  "homepage": "https://github.com/Kiyonari/mshllhBot#readme"
+}
