@@ -1,7 +1,7 @@
 {
   "name": "mshllhbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ceci est le mshllhbot 0.1",
   "main": "mshllhbot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/Kiyonari/mshllhBot/issues"
   },
-  "homepage": "https://github.com/Kiyonari/mshllhBot#readme"
+  "homepage": "https://github.com/Kiyonari/mshllhBot#readme",
+  "dependencies": {
+    "@elian-wonhalf/pretty-logger": "^1.0.1",
+    "discord.js": "^11.3.2"
+  }
 }
