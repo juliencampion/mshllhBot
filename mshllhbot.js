@@ -26,6 +26,12 @@ client.on('message', message => {
         quote = Quote.quote(message);
         return;
     }
+
+    let fdpRepeat = Math.floor(Math.random() * Math.floor(200) + 1);
+    console.log(fdpRepeat, message.author.bot);
+    if (fdpRepeat <= 1 && !message.author.bot) {
+        message.channel.send(message.content + " fdp");
+    }
 });
 
 client.login(token);

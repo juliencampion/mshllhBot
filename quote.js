@@ -4,16 +4,19 @@ const fs = require("fs");
 
 let quoteNumber = null;
 
-function writeQuote(quoteNumber, message) {
-    console.log("writequote", quoteNumber);
-    if (isNaN(quoteNumber)) {
+function writeQuote(_quoteNumber, message) {
+    console.log("writequote", _quoteNumber);
+    if (isNaN(_quoteNumber)) {
         message.channel.send("Usage !quote [numero de quote]");
+    }
+    else if (_quoteNumber > quoteNumber || _quoteNumber < 1) {
+        message.channel.send(`La quote ${_quoteNumber} n'existe pas`);
     }
     else {
         const text = fs.readFileSync("quotes.txt", (err, data) => {}).toString();
         console.log(text);
         const quotes = text.split('\n');
-        const quote = quotes[quoteNumber - 1].split('|');
+        const quote = quotes[_quoteNumber - 1].split('|');
         message.channel.send({
             "embed": {
                 "title": `Quote ${quote[0]}`,
