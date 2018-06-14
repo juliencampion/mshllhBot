@@ -3,6 +3,7 @@ const Logger = require("@elian-wonhalf/pretty-logger")
 const fs = require("fs");
 
 let quoteNumber = null;
+const quoteFile = "./quotes/quotes.txt";
 
 function writeQuote(_quoteNumber, message) {
     console.log("writequote", _quoteNumber);
@@ -13,7 +14,7 @@ function writeQuote(_quoteNumber, message) {
         message.channel.send(`La quote ${_quoteNumber} n'existe pas`);
     }
     else {
-        const text = fs.readFileSync("quotes.txt", (err, data) => {}).toString();
+        const text = fs.readFileSync(quoteFile, (err, data) => {}).toString();
         console.log(text);
         const quotes = text.split('\n');
         const quote = quotes[_quoteNumber - 1].split('|');
@@ -33,12 +34,12 @@ function writeQuote(_quoteNumber, message) {
 
 function getQuoteNumber(edit) {
     if (!quoteNumber) {
-        if (!fs.existsSync("quotes.txt")) {
+        if (!fs.existsSync(quoteFile)) {
             if (edit || !quoteNumber)
                 quoteNumber = 1;
         }
         else {
-            const text = fs.readFileSync("quotes.txt", (err, data) => {}).toString();
+            const text = fs.readFileSync(quoteFile, (err, data) => {}).toString();
             const quotes = text.split('\n');
             if (edit || !quoteNumber)
                 quoteNumber = quotes.length;
@@ -59,7 +60,7 @@ function quote(message) {
             detail = command.slice(3).join(' ');
             quoteNumber = getQuoteNumber(true);
             var quoteElems = [quoteNumber, author, detail, new Date().toISOString()];
-            fs.writeFileSync("quotes.txt", quoteElems.join('|') + '\n', {flag: 'a'});
+            fs.writeFileSync(quoteFile, quoteElems.join('|') + '\n', {flag: 'a'});
             message.channel.send(`La quote ${quoteNumber} a bien été ajoutée`);
         }
         else {
