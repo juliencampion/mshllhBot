@@ -21,7 +21,7 @@ function extractQuotesFromText(text) {
     retQuotes = [];
     while (text.length > 0) {
         [quote, text] = readSizedString(text);
-        quotes.push(quote);
+        retQuotes.push(quote);
         text = text.substr(lineSeparator.length);
     }
     return retQuotes;
