@@ -71,7 +71,7 @@ function getQuoteNumber(edit) {
         }
         else {
             text = fs.readFileSync(quoteFile, (err, data) => {}).toString();
-            quotes = extractQuotesFromText(text, separator);
+            quotes = extractQuotesFromText(text, fieldSeparator);
             console.log("quote number:", quotes.length);
 
             if (edit || !quoteNumber)
