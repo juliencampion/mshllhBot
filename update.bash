@@ -7,6 +7,6 @@ cp -rvf ./quotes /tmp;
 git stash;
 git pull origin master;
 git stash pop;
-docker stop  && docker rm ;
-docker build -t  .;
-docker run -t -d   -v /mnt/c/Users/sagara/Documents/projects/github/mshllhBot/quotes:/usr/src/app/quotes/   --name    
+docker stop ${DOCKER_NAME} && docker rm ${DOCKER_NAME};
+docker build -t ${DOCKER_IMAGE} .;
+docker run -t -d -v ${PWD}/quotes:/usr/src/app/quotes/ --name ${DOCKER_NAME} ${DOCKER_IMAGE};
