@@ -14,7 +14,7 @@ client.on('message', message => {
         sentence = message.content.split(' ')
         for (word = 0; word < sentence.length; word++) {
             for (var i = 0; i < mshllh.length; i++) {
-                if (sentence[word] === mshllh[i]) {
+                if (sentence[word].toLowerCase() === mshllh[i]) {
                     message.channel.send({ file: "./mashallah.jpg" }).catch(Logger.exception);
                     break;
                 }
