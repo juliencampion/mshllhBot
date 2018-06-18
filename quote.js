@@ -8,7 +8,7 @@ function randomQuote(message) {
   dbQuotes.sync();
   dbQuotes.count()
   .then(nb => {
-    randNumber = Math.floor(Math.random() * nb);
+    randNumber = Math.floor((Math.random() * nb) + 1);
     writeQuote(message, randNumber);
   });
 }
