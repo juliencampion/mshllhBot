@@ -21,6 +21,10 @@
   "homepage": "https://github.com/Kiyonari/mshllhBot#readme",
   "dependencies": {
     "@elian-wonhalf/pretty-logger": "^1.0.1",
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.10",
+    "sequelize-cli": "^4.0.0"
   }
 }
