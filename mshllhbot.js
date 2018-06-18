@@ -27,12 +27,18 @@ client.on('message', message => {
         return;
     }
 
-    let SpongeBobRepeat = Math.floor(Math.random() * Math.floor(200) + 1);
-    console.log(SpongeBobRepeat, message.author.bot);
-    if (SpongeBobRepeat <= 1 && !message.author.bot) {
+    const repeatRandom = Math.floor(Math.random() * Math.floor(300) + 1);
+    console.log(repeatRandom, message.author.bot);
+    if (repeatRandom <= 1 && !message.author.bot) {
         spongeBobFunction(message);
+    } else if (repeatRandom >= 300 && !message.author.bot) {
+        fdpFunction(message);
     }
 });
+
+function fdpFunction(message) {
+    message.channel.send(message.content + " fdp");
+}
 
 function spongeBobFunction(message) {
     str = message.content.toLowerCase().split(' ')
