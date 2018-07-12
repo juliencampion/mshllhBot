@@ -36,13 +36,17 @@ client.on('message', message => {
         const pourcentagePd = Math.floor(Math.random() * Math.floor(101));
         var emojiPd = "";
         if (pourcentagePd < 30) {
-            emojiPd = " :skull:";
+            emojiPd = ":skull:";
         } else if (pourcentagePd > 70) {
-            emojiPd = " :gay_pride_flag:";
+            emojiPd = ":gay_pride_flag:";
         } else if (pourcentagePd === 69) {
-            emojiPd = " :aerW:";
+            emojiPd = client.emojis.find("name", "aerW");
+        } else if (pourcentagePd === 100) {
+            emojiPd = ":gay_pride_flag: :gay_pride_flag: :gay_pride_flag:";
+        } else if (pourcentagePd === 0) {
+            emojiPd = ":skull: :skull: :skull:";
         }
-        message.channel.send(gays[1] + " et " + gays[2]+ " sont " + pourcentagePd + "% pd" + emojiPd);
+        message.channel.send(gays[1] + " et " + gays[2]+ " sont " + pourcentagePd + "% pd " + emojiPd);
         return;
     }
 
