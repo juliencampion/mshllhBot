@@ -27,6 +27,23 @@ client.on('message', message => {
         return;
     }
 
+    if (message.content.startsWith(`${prefix}gay`)) {
+        var gays = message.content.split(' ');
+        console.log(message.content);
+        if (gays.length !== 3) {
+            return;
+        }
+        const pourcentagePd = Math.floor(Math.random() * Math.floor(101));
+        var emojiPd = "";
+        if (pourcentagePd < 30) {
+            emojiPd = " :skull:";
+        } else if (pourcentagePd > 70) {
+            emojiPd = " :gay_pride_flag:";
+        }
+        message.channel.send(gays[1] + " et " + gays[2]+ " sont " + pourcentagePd + "% pd" + emojiPd);
+        return;
+    }
+
     const repeatRandom = Math.floor(Math.random() * Math.floor(300) + 1);
     console.log(repeatRandom, message.author.bot);
     if (repeatRandom <= 1 && !message.author.bot) {
