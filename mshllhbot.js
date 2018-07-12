@@ -39,6 +39,8 @@ client.on('message', message => {
             emojiPd = " :skull:";
         } else if (pourcentagePd > 70) {
             emojiPd = " :gay_pride_flag:";
+        } else if (pourcentagePd === 69) {
+            emojiPd = " :aerW:";
         }
         message.channel.send(gays[1] + " et " + gays[2]+ " sont " + pourcentagePd + "% pd" + emojiPd);
         return;
