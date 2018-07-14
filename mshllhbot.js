@@ -22,8 +22,7 @@ client.on('message', message => {
         }
     }
 
-    if (gag.replace9GagVideo(message))
-        return;
+    gag.replace9GagVideo(message);
 
     if (message.content.startsWith(`${prefix}quote`)) {
         quote = Quote.quote(message);
