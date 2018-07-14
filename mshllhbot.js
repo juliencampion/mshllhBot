@@ -3,7 +3,7 @@ const {prefix, token} = require('./config.json')
 const Logger = require("@elian-wonhalf/pretty-logger")
 const Quote = require('./quote.js')
 const fs = require('fs');
-
+const gag = require("./9gag.js");
 const client = new Discord.Client()
 const mshllh = ["mashallah", "mshllh"];
 
@@ -21,6 +21,9 @@ client.on('message', message => {
             }
         }
     }
+
+    if (gag.replace9GagVideo(message))
+        return;
 
     if (message.content.startsWith(`${prefix}quote`)) {
         quote = Quote.quote(message);
