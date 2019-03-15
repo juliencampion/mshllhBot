@@ -62,7 +62,7 @@ client.on('message', message => {
 });
 
 function fdpFunction(message) {
-    message.channel.send(message.content + " fdp");
+    message.channel.send("/tts " + message.content + " fdp");
 }
 
 function spongeBobFunction(message) {
