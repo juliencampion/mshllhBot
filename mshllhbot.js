@@ -58,13 +58,13 @@ client.on('message', message => {
         spongeBobFunction(message);
     } else if (repeatRandom >= 299 && !message.author.bot) {
         fdpFunction(message);
-    } else if ((repeatRandom === 69 || repeatRandom == 42) && !message.author.bot) {
+    } else if ((repeatRandom === 69 || repeatRandom === 42) && !message.author.bot) {
         everyoneFunction(message);
     }
 });
 
-function everyoneFunction() {
-    message.channel.send("@everyone :ok_hand:");
+function everyoneFunction(message) {
+    message.channel.send("@everyone :point_up: :ok_hand:");
 }
 
 function fdpFunction(message) {
