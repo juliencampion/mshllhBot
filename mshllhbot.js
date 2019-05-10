@@ -54,12 +54,18 @@ client.on('message', message => {
 
     const repeatRandom = Math.floor(Math.random() * Math.floor(300) + 1);
     console.log(repeatRandom, message.author.bot);
-    if (repeatRandom <= 1 && !message.author.bot) {
+    if (repeatRandom <= 2 && !message.author.bot) {
         spongeBobFunction(message);
-    } else if (repeatRandom >= 300 && !message.author.bot) {
+    } else if (repeatRandom >= 299 && !message.author.bot) {
         fdpFunction(message);
+    } else if ((repeatRandom === 69 || repeatRandom == 42) && !message.author.bot) {
+        everyoneFunction(message);
     }
 });
+
+function everyoneFunction() {
+    message.channel.send("@everyone :ok_hand:");
+}
 
 function fdpFunction(message) {
     message.channel.send(message.content + " fdp", {
