@@ -10,9 +10,7 @@ const mshllh = ["mashallah", "mshllh"];
 client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
 
 client.on('typingStart', (channel, user) => {
-    console.log("start typing");
     setTimeout(() => {
-        console.log(user.typingIn(channel));
         if (user.typingIn(channel)) {
             channel.send("Bon alors <@" + user.id + "> tu vas te grouiller d'envoyer ton message ou je peux te promettre que ça va pas aller entre toi et moi.");
         }
