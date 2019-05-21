@@ -9,6 +9,14 @@ const mshllh = ["mashallah", "mshllh"];
 
 client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
 
+client.on('typingStart', (channel, user) => {
+    setTimeout(() => {
+        if (user.typingDurationIn(channel) >= 29000) {
+            channel.send('Bon alors @' + user.tag + ' tu vas te grouiller d\'envoyer ton message ou je peux te promettre que ça va pas aller entre toi et moi.');
+        }
+    }, 30000);
+});
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix)) {
         sentence = message.content.split(' ')
