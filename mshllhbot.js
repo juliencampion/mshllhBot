@@ -1,20 +1,22 @@
 const Discord = require('discord.js')
 const {prefix, token} = require('./config.json')
 const Logger = require("@elian-wonhalf/pretty-logger")
-const Quote = require('./quote.js')
+//const Quote = require('./quote.js')
 const fs = require('fs');
-const gag = require("./9gag.js");
+//const gag = require("./9gag.js");
 const client = new Discord.Client()
 const mshllh = ["mashallah", "mshllh"];
 
 client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
 
 client.on('typingStart', (channel, user) => {
+    console.log("start typing");
     setTimeout(() => {
-        if (user.typingDurationIn(channel) >= 29000) {
-            channel.send('Bon alors @' + user.tag + ' tu vas te grouiller d\'envoyer ton message ou je peux te promettre que ça va pas aller entre toi et moi.');
+        console.log(user.typingIn(channel));
+        if (user.typingIn(channel)) {
+            channel.send("Bon alors <@" + user.id + "> tu vas te grouiller d'envoyer ton message ou je peux te promettre que ça va pas aller entre toi et moi.");
         }
-    }, 30000);
+    }, 20000);
 });
 
 client.on('message', message => {
@@ -30,12 +32,12 @@ client.on('message', message => {
         }
     }
 
-    gag.replace9GagVideo(message);
+    //gag.replace9GagVideo(message);
 
-    if (message.content.startsWith(`${prefix}quote`)) {
+    /*if (message.content.startsWith(`${prefix}quote`)) {
         quote = Quote.quote(message);
         return;
-    }
+    }*/
 
     if (message.content.startsWith(`${prefix}gay`)) {
         var gays = message.content.split(' ');
