@@ -30,12 +30,12 @@ client.on('message', message => {
         }
     }
 
-    //gag.replace9GagVideo(message);
+    gag.replace9GagVideo(message);
 
-    /*if (message.content.startsWith(`${prefix}quote`)) {
+    if (message.content.startsWith(`${prefix}quote`)) {
         quote = Quote.quote(message);
         return;
-    }*/
+    }
 
     if (message.content.startsWith(`${prefix}gay`)) {
         var gays = message.content.split(' ');
