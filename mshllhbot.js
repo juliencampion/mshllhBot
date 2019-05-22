@@ -7,6 +7,8 @@ const gag = require("./9gag.js");
 const client = new Discord.Client()
 const mshllh = ["mashallah", "mshllh"];
 
+const bot_id = 456480783364784128
+
 client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
 
 /*client.on('typingStart', (channel, user) => {
@@ -17,7 +19,39 @@ client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
     }, 20000);
 });*/
 
+client.on('messageDelete', function(message) {
+    var txt = ""
+    if (message.author.id == bot_id) {
+        txt = "C'est qui le fdp qui me censure ? On se croirait chez les bolcheviks >:("
+        txt += "\n" + message.content
+    } else {
+        txt = "Genre t'as cru que t'allais t'en sortir comme ça <@" + message.author.id + ">"
+        if (message.content.includes("fdp")) {
+            txt += "\nEt puis c'toi le fdp d'abord"
+        }
+        txt += "\nLe voilà ton message pour la peine: \"" + message.content + "\""
+    }
+    message.channel.send(txt)
+})
+
+client.on('messageUpdate', function(old_message, new_message) {
+    if (new_message.author.id != bot_id) {
+        new_message.channel.send("J'ai tout vu <@" + new_message.author.id + "> <:aerW:456464580328161280>\nEn vrai t'as dit \"" + old_message.content + "\"")
+    }
+})
+
 client.on('message', message => {
+    if (message.author.id != bot_id && (newRandom() == 42)) {
+        message.author.send({ file: "./mashallah.jpg" }).catch(Logger.exception);
+    }
+
+    if (message.author.id == bot_id) {
+        return;
+    }
+    if (message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && newRandom() > 50) {
+        message.channel.send("#NoHomo bien sûr")
+    }
+
     if (!message.content.startsWith(prefix)) {
         sentence = message.content.split(' ')
         for (word = 0; word < sentence.length; word++) {
@@ -43,7 +77,7 @@ client.on('message', message => {
         if (gays.length !== 3) {
             return;
         }
-        const pourcentagePd = Math.floor(Math.random() * Math.floor(101));
+        const pourcentagePd = newRandom();
         var emojiPd = "";
         if (pourcentagePd < 30) {
             emojiPd = ":skull:";
@@ -81,6 +115,10 @@ function fdpFunction(message) {
     });
 }
 
+function newRandom() {
+    return Math.floor(Math.random() * 101)
+}
+
 function spongeBobFunction(message) {
     str = message.content.toLowerCase().split(' ')
     line = ""
@@ -98,3 +136,4 @@ function spongeBobFunction(message) {
 }
 
 client.login(token);
+
