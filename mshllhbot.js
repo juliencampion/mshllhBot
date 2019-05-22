@@ -102,6 +102,8 @@ client.on('message', message => {
         fdpFunction(message);
     } else if ((repeatRandom === 69 || repeatRandom === 42) && !message.author.bot) {
         everyoneFunction(message);
+    } else if ((repeatRandom === 100 || repeatRandom === 200) && !message.author.bot) {
+        message.react("👌");
     }
 });
 
