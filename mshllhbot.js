@@ -108,7 +108,7 @@ client.on('message', message => {
 });
 
 function everyoneFunction(message) {
-    message.channel.send("@everyone :point_up: :ok_hand:");
+    message.channel.send(":point_up: :ok_hand:");
 }
 
 function fdpFunction(message) {
