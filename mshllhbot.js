@@ -41,12 +41,11 @@ client.on('messageUpdate', function(old_message, new_message) {
 })
 
 client.on('message', message => {
-    if (message.author.id != bot_id && (newRandom() == 42)) {
-        message.author.send({ file: "./mashallah.jpg" }).catch(Logger.exception);
-    }
-
     if (message.author.id == bot_id) {
         return;
+    }
+    if (newRandom() == 42) {
+        message.author.send({ file: "./mashallah.jpg" }).catch(Logger.exception);
     }
     if (message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && newRandom() > 50) {
         message.channel.send("#NoHomo bien sûr")
