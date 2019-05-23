@@ -47,6 +47,5 @@ class RandomInteractions extends BaseModule {
 }
 
 module.exports = new RandomInteractions({
-	triggered_at: "message",
-	stopPropagation: true
+	triggered_at: "message"
 })
