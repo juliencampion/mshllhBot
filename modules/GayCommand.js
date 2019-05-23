@@ -7,7 +7,6 @@ class GayCommand extends BaseModule {
   }
 
 	process(message) {
-		console.log("fay")
 		var gays = message.content.split(' ');
 		if (gays.length !== 3) {
 		    return;

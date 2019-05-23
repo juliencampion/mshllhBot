@@ -17,8 +17,7 @@ config.modules.forEach(function(name) {
     modules[mod.config.triggered_at][name] = mod
 })
 
-for (i in config.events) {
-    let event_name = i
+config.events.forEach(function(event_name) {
     client.on(event_name, function(p1, p2, p3) {
         if (modules[event_name] && events_configuration[event_name](p1, p2, p3)) {
             for (c in modules[event_name]) {
@@ -32,6 +31,6 @@ for (i in config.events) {
             }
         }
     })
-}
+})
 
 client.login(config.token);
