@@ -115,8 +115,7 @@ function reaction(emojis, str, message) {
     if (str.length === 0) {
         return;
     }
-    message.react(emojis[str[0].charCodeAt() - 96]);
-    setTimeout(reaction, 1000, emojis, str.slice(1), message);
+    message.react(emojis[str[0].charCodeAt() - 96]).then(() => setTimeout(reaction, 1000, emojis, str.slice(1), message));
 }
 
 function isLetter(str) {
