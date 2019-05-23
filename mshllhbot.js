@@ -95,11 +95,7 @@ client.on('message', message => {
 
     if (isMadeOfDifferentLetters(message)) {
         var emojis = ["0", "🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"];
-        var timing = 500;
-        for (var i = 0; i < str.length; i++) {
-            setTimeout(reaction, timing, emojis, str[i], message);
-            timing += 1000;
-        }
+        setTimeout(reaction, 500, emojis, str, message);
     }
 
     const repeatRandom = Math.floor(Math.random() * Math.floor(300) + 1);
@@ -115,8 +111,12 @@ client.on('message', message => {
     }
 });
 
-function reaction(emojis, char, message) {
-    message.react(emojis[char.charCodeAt() - 96]);
+function reaction(emojis, str, message) {
+    if (str.length === 0) {
+        return;
+    }
+    message.react(emojis[str[0].charCodeAt() - 96]);
+    setTimeout(reaction, 1000, emojis, str.slice(1), message);
 }
 
 function isLetter(str) {
