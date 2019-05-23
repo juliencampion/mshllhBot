@@ -138,7 +138,7 @@ function isMadeOfDifferentLetters(message) {
 }
 
 function everyoneFunction(message) {
-    message.channel.send("@everyouane :point_up: :ok_hand:");
+    message.channel.send("<@&581041173410611201> :point_up: :ok_hand:");
 }
 
 function fdpFunction(message) {
