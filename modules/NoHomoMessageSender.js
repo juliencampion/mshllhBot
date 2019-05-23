@@ -3,7 +3,7 @@ const Utils = require("../Utils.js")
 
 class NoHomoMessageSender extends BaseModule {
 	canProcess(message) {
-		return message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && Utils.rand() > 50 && message.author.id != this.constants.bot_id
+		return message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && Utils.rand() > 50
 	}
 
 	process(message) {
@@ -11,4 +11,6 @@ class NoHomoMessageSender extends BaseModule {
 	}
 }
 
-module.exports = new NoHomoMessageSender("message")
+module.exports = new NoHomoMessageSender({
+	triggered_at: "message"
+})

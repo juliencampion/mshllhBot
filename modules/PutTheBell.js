@@ -2,7 +2,7 @@ const BaseModule = require("./BaseModule.js")
 
 class PutTheBell extends BaseModule {
 	canProcess(message) {
-    return message.content.match(/cloche|cloch|abonne|aboné|abon/) && message.author.id != this.constants.bot_id
+    return message.content.match(/cloche|cloch|abonne|aboné|abon/)
 	}
 
 	process(message) {
@@ -10,4 +10,6 @@ class PutTheBell extends BaseModule {
 	}
 }
 
-module.exports = new PutTheBell("message")
+module.exports = new PutTheBell({
+	triggered_at: "message"
+})

@@ -4,11 +4,13 @@ const Logger = require("@elian-wonhalf/pretty-logger")
 
 class DMMshllhSender extends BaseModule {
     canProcess(message) {
-        return Utils.rand() == 42 && message.author.id != this.constants.bot_id
+        return Utils.rand() == 42
     }
-	process(message) {
+    process(message) {
         message.author.send({ file: this.constants.mashallah_image }).catch(Logger.exception);
-  }
+    }
 }
 
-module.exports = new DMMshllhSender("message")
+module.exports = new DMMshllhSender({
+	triggered_at: "message"
+})

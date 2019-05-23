@@ -2,25 +2,25 @@ const BaseModule = require("./BaseModule.js")
 const Utils = require("../Utils")
 
 class RandomInteractions extends BaseModule {
-  canProcess(message) {
-		return message.author.id != this.constants.bot_id
-  }
-
 	process(message) {
     const repeatRandom = Utils.rand(300);
-    if (repeatRandom <= 2 && !message.author.bot) {
-      spongeBobFunction(message);
-    } else if (repeatRandom >= 299 && !message.author.bot) {
-      fdpFunction(message);
-    } else if ((repeatRandom === 69 || repeatRandom === 42) && !message.author.bot) {
-      everyoneFunction(message);
-    } else if ((repeatRandom === 100 || repeatRandom === 200) && !message.author.bot) {
-      message.react("👌");
+    if (repeatRandom <= 2) {
+      this.spongeBobFunction(message);
+    } else if (repeatRandom >= 299) {
+      this.fdpFunction(message);
+    } else if ((repeatRandom === 69 || repeatRandom === 42)) {
+      this.everyoneFunction(message);
+    } else if ((repeatRandom === 100 || repeatRandom === 200)) {
+      this.reactFunction(message)
     }
   }
 
 	everyoneFunction(message) {
 		message.channel.send("@everyone :point_up: :ok_hand:");
+	}
+
+	reactFunction(message) {
+		message.react("👌");
 	}
 
 	fdpFunction(message) {
@@ -30,8 +30,8 @@ class RandomInteractions extends BaseModule {
 	}
 
 	spongeBobFunction(message) {
-		str = message.content.toLowerCase().split(' ')
-		line = ""
+		var str = message.content.toLowerCase().split(' ')
+		var line = ""
 		for (var h = 0; h < str.length; h++) {
 	    for (var i = 0; i < str[h].length; i++) {
 	      if ((i % 2) == 0) {
@@ -46,4 +46,7 @@ class RandomInteractions extends BaseModule {
 	}
 }
 
-module.exports = new RandomInteractions("message")
+module.exports = new RandomInteractions({
+	triggered_at: "message",
+	stopPropagation: true
+})

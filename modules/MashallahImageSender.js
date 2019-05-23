@@ -4,11 +4,13 @@ const Logger = require("@elian-wonhalf/pretty-logger")
 
 class MashallahImageSender extends BaseModule {
 	canProcess(message) {
-		return message.content.startsWith(this.constants.command_prefix) && message.author.id != this.constants.bot_id
+		return message.content.startsWith(this.constants.command_prefix)
 	}
 
 	process(message) {
 		var sentence = message.content.split(' ')
+		const mshllh = ['mshllh', 'mashallah']
+
 		for (word = 0; word < sentence.length; word++) {
 	    for (var i = 0; i < mshllh.length; i++) {
         if (sentence[word].toLowerCase() === mshllh[i]) {
@@ -20,4 +22,6 @@ class MashallahImageSender extends BaseModule {
   }
 }
 
-module.exports = new MashallahImageSender("message")
+module.exports = new MashallahImageSender({
+	triggered_at: "message"
+})

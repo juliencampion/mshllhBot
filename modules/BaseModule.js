@@ -1,8 +1,8 @@
 //const constants = require('../constants')
 
 class BaseModule {
-	constructor(triggered_at) {
-		this.triggered_at = triggered_at
+	constructor(config) {
+		this.config = config
 	}
 
 	canProcess() {

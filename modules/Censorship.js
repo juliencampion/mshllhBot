@@ -17,4 +17,6 @@ class Censorship extends BaseModule {
   }
 }
 
-module.exports = new Censorship("messageDelete")
+module.exports = new Censorship({
+    triggered_at: "messageDelete"
+})

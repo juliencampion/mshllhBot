@@ -2,7 +2,7 @@ const BaseModule = require("./BaseModule.js")
 
 class MessageUpdateTracker extends BaseModule {
 	canProcess(old_message, new_message) {
-	  return new_message.author.id != constants.bot_id && !old_message.content.match(/https:\/\/|http:\/\/|www\./)
+	  return !old_message.content.match(/https:\/\/|http:\/\/|www\./)
 	}
 
 	process(old_message, new_message) {
@@ -10,4 +10,6 @@ class MessageUpdateTracker extends BaseModule {
   }
 }
 
-module.exports = new MessageUpdateTracker("messageUpdate")
+module.exports = new MessageUpdateTracker({
+	triggered_at: "messageUpdate"
+})

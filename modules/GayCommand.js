@@ -3,10 +3,11 @@ const Utils = require("../Utils")
 
 class GayCommand extends BaseModule {
   canProcess(message) {
-		return message.content.startsWith(this.constants.command_prefix + "gay") && message.author.id != this.constants.bot_id
+		return message.content.startsWith(this.constants.command_prefix + "gay")
   }
 
 	process(message) {
+		console.log("fay")
 		var gays = message.content.split(' ');
 		if (gays.length !== 3) {
 		    return;
@@ -28,4 +29,7 @@ class GayCommand extends BaseModule {
   }
 }
 
-module.exports = new GayCommand("message")
+module.exports = new GayCommand({
+	triggered_at: "message",
+	stopPropagation: true
+})
