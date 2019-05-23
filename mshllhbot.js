@@ -94,6 +94,15 @@ client.on('message', message => {
         return;
     }
 
+    if (isMadeOfDifferentLetters(message)) {
+        var emojis = ["0", "🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"];
+        var timing = 500;
+        for (var i = 0; i < str.length; i++) {
+            setTimeout(reaction, timing, emojis, str[i], message);
+            timing += 1000;
+        }
+    }
+
     const repeatRandom = Math.floor(Math.random() * Math.floor(300) + 1);
     console.log(repeatRandom, message.author.bot);
     if (repeatRandom <= 2 && !message.author.bot) {
@@ -107,8 +116,30 @@ client.on('message', message => {
     }
 });
 
+function reaction(emojis, char, message) {
+    message.react(emojis[char.charCodeAt() - 96]);
+}
+
+function isLetter(str) {
+    return str.length === 1 && str.match(/[a-z]/i);
+}
+
+function isMadeOfDifferentLetters(message) {
+    str = message.content.toLowerCase();
+    letters = [];
+
+    for (var i = 0; i < str.length; i++) {
+        if (isLetter(str[i]) && !letters.includes(str[i])) {
+            letters.push(str[i]);
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+
 function everyoneFunction(message) {
-    message.channel.send(":point_up: :ok_hand:");
+    message.channel.send("@everyouane :point_up: :ok_hand:");
 }
 
 function fdpFunction(message) {
