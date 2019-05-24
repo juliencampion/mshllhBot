@@ -3,7 +3,7 @@ const Utils = require("../Utils.js")
 
 class AsciiReactions extends BaseModule {
 	canProcess(message) {
-    return Utils.random() < 30 && this.isMadeOfDifferentLetters(message);
+    return Utils.rand() < 30 && this.isMadeOfDifferentLetters(message);
 	}
 
 	process(message) {
