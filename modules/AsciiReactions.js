@@ -8,7 +8,7 @@ class AsciiReactions extends BaseModule {
 	process(message) {
 		let emojis = ["0", "🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"];
 		var str = message.content
-  	setTimeout(reaction, 500, emojis, str, message);
+  	reaction(emojis, str, message);
   }
 
 	isLetter(str) {
@@ -34,7 +34,7 @@ var reaction = function(emojis, str, message) {
 	if (str.length === 0) {
 		return;
   }
-  message.react(emojis[str[0].charCodeAt() - 96]).then(() => setTimeout(reaction, 1000, emojis, str.slice(1), message));
+  message.react(emojis[str[0].charCodeAt() - 96]).then(() => reaction(emojis, str.slice(1), message));
 }
 
 module.exports = new AsciiReactions({
