@@ -1,13 +1,13 @@
-const config = require('./config.json')
+const client_config = require('./config.json')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const constants = require("./constants")
-const events_configuration = require("./events_configuration.js")
+const configuration = require("./configuration.js")
 
 let modules = {}
 
 client.on('ready', () => console.log(`Logged as ${client.user.tag}`));
-config.modules.forEach(function(name) {
+configuration.modules.forEach(function(name) {
     var mod = new require("./modules/" + name + ".js")
     mod.client = client
     mod.constants = constants
@@ -17,9 +17,9 @@ config.modules.forEach(function(name) {
     modules[mod.config.triggered_at][name] = mod
 })
 
-config.events.forEach(function(event_name) {
+configuration.events.forEach(function(event_name) {
     client.on(event_name, function(p1, p2, p3) {
-        if (modules[event_name] && events_configuration[event_name](p1, p2, p3)) {
+        if (modules[event_name] && configuration.events_configuration[event_name](p1, p2, p3)) {
             for (c in modules[event_name]) {
                 let mod = modules[event_name][c]
                 if (mod.canProcess(p1, p2, p3)) {
@@ -33,4 +33,4 @@ config.events.forEach(function(event_name) {
     })
 })
 
-client.login(config.token);
+client.login(client_config.token);

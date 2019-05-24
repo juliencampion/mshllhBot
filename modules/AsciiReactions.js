@@ -1,8 +1,9 @@
 const BaseModule = require("./BaseModule.js")
+const Utils = require("../Utils.js")
 
 class AsciiReactions extends BaseModule {
 	canProcess(message) {
-    return this.isMadeOfDifferentLetters(message);
+    return Utils.random() < 30 && this.isMadeOfDifferentLetters(message);
 	}
 
 	process(message) {
