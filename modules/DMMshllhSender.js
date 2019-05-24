@@ -4,7 +4,7 @@ const Logger = require("@elian-wonhalf/pretty-logger")
 
 class DMMshllhSender extends BaseModule {
     canProcess(message) {
-        return Utils.rand() == 42
+        return Utils.rand(150) == 42
     }
     process(message) {
         message.author.send({ file: this.constants.mashallah_image }).catch(Logger.exception);

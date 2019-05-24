@@ -3,7 +3,7 @@ const Utils = require("../Utils.js")
 
 class NoHomoMessageSender extends BaseModule {
 	canProcess(message) {
-		return message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && Utils.rand() > 50
+		return Utils.rand() < 25 && message.content.match(/💙|❤|💚|💜|🖤|💛|\\<3|<3/) && Utils.rand() > 50
 	}
 
 	process(message) {

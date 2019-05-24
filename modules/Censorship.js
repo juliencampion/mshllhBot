@@ -1,6 +1,10 @@
 const BaseModule = require("./BaseModule.js")
 
 class Censorship extends BaseModule {
+    canProcess(message) {
+        return !message.content.includes("C'est qui le fdp qui me censure ? On se croirait chez les bolcheviks :rage:");
+    }
+
 	process(message) {
     var txt = ""
     if (message.author.id == this.constants.bot_id) {

@@ -3,7 +3,7 @@ const Utils = require('../Utils.js')
 
 class DMMshllhSender extends BaseModule {
     canProcess(message) {
-    	return Utils.rand() > 50 && message.content.includes("😢")
+    	return Utils.rand() < 25 && message.content.includes("😢")
     }
     process(message) {
         message.channel.send("RT si t trist");
