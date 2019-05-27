@@ -1,5 +1,4 @@
 const BaseModule = require("./BaseModule.js")
-const Utils = require("../Utils.js")
 const Logger = require("@elian-wonhalf/pretty-logger")
 
 class MashallahImageSender extends BaseModule {

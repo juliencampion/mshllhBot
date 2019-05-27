@@ -1,9 +1,8 @@
 const BaseModule = require("./BaseModule.js")
-const Utils = require("../Utils.js")
 
 class AsciiReactions extends BaseModule {
 	canProcess(message) {
-    return Utils.rand() < 30 && this.isMadeOfDifferentLetters(message);
+    return this.isMadeOfDifferentLetters(message);
 	}
 
 	process(message) {
@@ -39,5 +38,6 @@ var reaction = function(emojis, str, message) {
 }
 
 module.exports = new AsciiReactions({
-	triggered_at: "message"
+	triggered_at: "message",
+	trigger_probability: 30
 })
