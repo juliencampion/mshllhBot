@@ -1,4 +1,5 @@
 const BaseModule = require("./BaseModule.js")
+const Utils = require("../Utils.js")
 
 class Sudoku extends BaseModule {
     canProcess(message) {
@@ -6,7 +7,16 @@ class Sudoku extends BaseModule {
     }
 
     process(message) {
-    message.channel.send("Demande à <@215150729130803200> fdp")
+    	var size = 6
+    	var txt = ""
+
+    	for (var y = 0; y < size; y++) {
+    		for (var x = 0; x < size; x++) {
+	    		txt += "||:" + ["zero", "one", "two", "three", "four", "eight", "bomb"][Utils.rand(6)] + ":||"
+    		}
+    		txt += "\n"
+    	}
+    	message.channel.send(txt)
   }
 }
 
