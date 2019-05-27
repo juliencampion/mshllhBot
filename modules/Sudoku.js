@@ -12,7 +12,7 @@ class Sudoku extends BaseModule {
 
     	for (var y = 0; y < size; y++) {
     		for (var x = 0; x < size; x++) {
-	    		txt += "||:" + ["zero", "one", "two", "three", "four", "eight", "bomb"][Utils.rand(6)] + ":||"
+	    		txt += "||:" + ["zero", "one", "two", "three", "four", "eight", "bomb"][Utils.rand(6)] + ":|| "
     		}
     		txt += "\n"
     	}
