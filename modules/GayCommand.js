@@ -30,5 +30,5 @@ class GayCommand extends BaseModule {
 
 module.exports = new GayCommand({
 	triggered_at: "message",
-	stopPropagation: true
+	stop_propagation: true
 })

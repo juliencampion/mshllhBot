@@ -5,7 +5,7 @@ class RandomInteractions extends BaseModule {
 	process(message) {
     const repeatRandom = Utils.rand(300);
     if (repeatRandom <= 2) {
-      this.spongeBobFunction(message);
+      message.channel.send(Utils.spongeBob(message.content));
     } else if (repeatRandom >= 299) {
       this.fdpFunction(message);
     } else if ((repeatRandom === 69 || repeatRandom === 42)) {
@@ -27,22 +27,6 @@ class RandomInteractions extends BaseModule {
 		message.channel.send(message.content + " fdp", {
 			tts: true
 		});
-	}
-
-	spongeBobFunction(message) {
-		var str = message.content.toLowerCase().split(' ')
-		var line = ""
-		for (var h = 0; h < str.length; h++) {
-	    for (var i = 0; i < str[h].length; i++) {
-	      if ((i % 2) == 0) {
-	        line += str[h][i].toUpperCase()
-	      } else {
-	        line += str[h][i]
-	      }
-	    }
-	    line += ' '
-		}
-		message.channel.send(line);
 	}
 }
 
