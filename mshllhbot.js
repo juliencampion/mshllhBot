@@ -34,3 +34,4 @@ configuration.events.forEach(function(event_name) {
 })
 
 client.login(client_config.token);
+
