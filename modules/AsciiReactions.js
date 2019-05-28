@@ -7,7 +7,7 @@ class AsciiReactions extends BaseModule {
 
 	process(message) {
 		let emojis = ["0", "🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"];
-		var str = message.content
+		var str = message.content.toLowerCase();
   	reaction(emojis, str, message);
   }
 
