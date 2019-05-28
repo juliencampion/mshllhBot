@@ -11,7 +11,7 @@ module.exports = {
 			return message.content[0] != constants.command_prefix
 		},
 		'messageUpdate': function(old_m, new_m) {
-			return old_m.content[0] != constants.command_prefix
+			return old_m.content[0] != constants.command_prefix && !old_m.author.bot && !new_m.author.bot && true
 		}
 	}
 }
