@@ -16,7 +16,8 @@ class RandomInteractions extends BaseModule {
   }
 
 	everyoneFunction(message) {
-		message.channel.send("@everyone :point_up: :ok_hand:");
+		const everyoneId = message.guild.roles.find('name', 'everyouane').id;
+		message.channel.send("<@&" + everyoneId + "> :point_up: :ok_hand:");
 	}
 
 	reactFunction(message) {
