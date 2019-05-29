@@ -1,4 +1,4 @@
-const constants = require("./constants.js")
+gconst constants = require("./constants.js")
 
 module.exports = {
 	events: ["message", "messageDelete", "messageUpdate"],
@@ -12,7 +12,7 @@ module.exports = {
 				if (message.content[0] != constants.command_prefix) {
 					return true
 				} else {
-					return mod.constants.triggered_when_command ? true : false
+					return mod.config.triggered_when_command ? true : false
 				}
 			}
 		},
