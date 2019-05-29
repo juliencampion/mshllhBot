@@ -33,10 +33,11 @@ class ScoreDisabler extends BaseModule {
             if (userID) {
                 newBuffer += userID + ";" + userScore + ";" + userConsent + "\n";
             }
-            if (!alreadyHasScore) {
-                newBuffer += writerID + ";0;" + this.getUserConsent(message) + "\n";
-            }
         });
+
+        if (!alreadyHasScore) {
+            newBuffer += writerID + ";0;" + this.getUserConsent(message) + "\n";
+        }
 
         fs.writeFileSync("db/score.csv", newBuffer, () => { });
     }
