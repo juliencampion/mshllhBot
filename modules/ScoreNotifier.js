@@ -7,7 +7,6 @@ class ScoreDisabler extends BaseModule {
     }
 
     process(message) {
-        console.log("test");
         const writerID = message.author.id;
         const buffer = fs.readFileSync("db/score.csv", () => { }).toString();
         const lines = buffer.split('\n');
