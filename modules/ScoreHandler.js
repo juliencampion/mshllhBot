@@ -17,7 +17,7 @@ class ScoreHandler {
             if (writerID === userID) {
                 userScore = parseInt(userScore) + value;
                 if (userConsent === "true") {
-                    //this.changeUserName(message, userScore);
+                    this.changeUserName(message, userScore);
                     this.sendSwagNotification(message, userScore, reason);
                 }
                 alreadyHasScore = true;
@@ -29,7 +29,7 @@ class ScoreHandler {
 
         if (!alreadyHasScore) {
             newBuffer += writerID + ";" + value + ";true\n";
-            //this.changeUserName(message, value);
+            this.changeUserName(message, value);
             this.sendSwagNotification(message, value, reason);
         }
 
