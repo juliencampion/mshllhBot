@@ -1,4 +1,4 @@
-gconst constants = require("./constants.js")
+const constants = require("./constants.js")
 
 module.exports = {
 	events: ["message", "messageDelete", "messageUpdate"],
