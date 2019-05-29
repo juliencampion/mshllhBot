@@ -25,7 +25,7 @@ class ScoreDisabler extends BaseModule {
         });
 
         if (!alreadyHasScore) {
-            newBuffer += writerID + ";0;" + this.getUserConsent(message) + "\n";
+            this.sendScoreInfo(message, 0, true);
         }
     }
 
